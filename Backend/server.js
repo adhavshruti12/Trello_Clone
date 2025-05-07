@@ -11,7 +11,14 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // Enable preflight requests for all routes
+const corsOptions = {
+  origin: "https://trello-clone-l5lo.vercel.app", // Your frontend URL
+  methods: "GET, POST, PUT, DELETE, OPTIONS",
+  allowedHeaders: "Content-Type, Authorization,Username, Password", // Add "Password" header explicitly
+  credentials: true,
+};
 app.use(express.json());
 
 // MongoDB connection
