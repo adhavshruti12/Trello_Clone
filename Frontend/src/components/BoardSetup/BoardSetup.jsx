@@ -9,7 +9,7 @@ const BoardSetup = () => {
   const handleNext = async () => {
     if (boardName.trim()) {
       try {
-        const response = await fetch('http://localhost:5000/api/boards', {
+        const response = await fetch('https://trello-clone-nu-opal.vercel.app/api/boards', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
